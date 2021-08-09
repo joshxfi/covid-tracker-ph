@@ -13,3 +13,7 @@
     @apply hover:text-white transition;
   }
 }
+
+body {
+  @apply bg-gray-900 h-screen;
+}

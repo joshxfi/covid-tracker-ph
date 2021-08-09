@@ -20,7 +20,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className='h-screen flex flex-col items-center font-pops bg-gray-900 text-gray-200'>
+    <div className='h-full flex flex-col items-center font-pops bg-gray-900 text-gray-200'>
       <div>
         <div className='mt-16 text-center'>
           <h1 className='lg:text-5xl text-3xl font-bold'>Covid-19 Tracker PH</h1>
@@ -51,7 +51,7 @@ const App: React.FC = () => {
       </div>
 
       <footer className='flex flex-col lg:flex-row justify-between items-center w-screen pt-8 lg:px-36 px-8 pb-8 absolute bottom-0 bg-blue-900'>
-        <p>&copy; Josh Daniel Bañares 2021 • All Rights Reserved</p>
+        <p className='lg:text-base text-sm'>&copy; Josh Daniel Bañares 2021 • All Rights Reserved</p>
         <div className='mt-2 lg:mt-0'>
           <a
             className='lg:mr-12 mr-8 link'
