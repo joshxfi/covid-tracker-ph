@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./tailwind.css";
 import axios from "axios";
 import { covidPH } from "./types";
 
@@ -52,10 +53,15 @@ const App: React.FC = () => {
       <footer className='flex flex-col lg:flex-row justify-between items-center w-screen pt-8 lg:px-36 px-8 pb-8 absolute bottom-0 bg-blue-900'>
         <p>&copy; Josh Daniel Bañares 2021 • All Rights Reserved</p>
         <div className='mt-2 lg:mt-0'>
-          <a className='mr-12 link' href='https://github.com/joshxfi/covid-tracker-ph' rel='noreferrer' target='_blank'>
+          <a
+            className='lg:mr-12 mr-8 link'
+            href='https://github.com/joshxfi/covid-tracker-ph'
+            rel='noreferrer'
+            target='_blank'
+          >
             GitHub
           </a>
-          <a className='mr-12 link' href='https://disease.sh/' rel='noreferrer' target='_blank'>
+          <a className='lg:mr-12 mr-8 link' href='https://disease.sh/' rel='noreferrer' target='_blank'>
             API
           </a>
           <a className='link' href='https://xfi.vercel.app/' rel='noreferrer' target='_blank'>
