@@ -6,7 +6,7 @@
 
 @layer components {
   .info {
-    @apply mt-8 md:text-4xl text-2xl font-medium;
+    @apply mt-8 lg:text-4xl text-2xl font-medium;
   }
 
   .link {

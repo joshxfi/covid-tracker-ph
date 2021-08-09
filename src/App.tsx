@@ -22,7 +22,7 @@ const App: React.FC = () => {
     <div className='h-screen flex flex-col items-center font-pops bg-gray-900 text-gray-200'>
       <div>
         <div className='mt-16 text-center'>
-          <h1 className='md:text-5xl text-3xl font-bold'>Covid-19 Tracker PH</h1>
+          <h1 className='lg:text-5xl text-3xl font-bold'>Covid-19 Tracker PH</h1>
           <h2 className='text-blue-400'>
             <i>data updates every 10 minutes</i>
           </h2>
@@ -49,9 +49,9 @@ const App: React.FC = () => {
         </div>
       </div>
 
-      <footer className='flex flex-col md:flex-row justify-between items-center w-screen pt-8 md:px-36 px-8 pb-8 absolute bottom-0 bg-blue-900'>
+      <footer className='flex flex-col lg:flex-row justify-between items-center w-screen pt-8 lg:px-36 px-8 pb-8 absolute bottom-0 bg-blue-900'>
         <p>&copy; Josh Daniel Bañares 2021 • All Rights Reserved</p>
-        <div className='mt-2 md:mt-0'>
+        <div className='mt-2 lg:mt-0'>
           <a className='mr-12 link' href='https://github.com/joshxfi/covid-tracker-ph' rel='noreferrer' target='_blank'>
             GitHub
           </a>
