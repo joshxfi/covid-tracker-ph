@@ -1,14 +1,18 @@
-import React, { useState, useEffect } from "react";
 import "./tailwind.css";
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import axios from "axios";
 import { covidPH } from "./types";
+import { Loader } from "./Loader";
 
 const App: React.FC = () => {
   const [covidData, setCovidData] = useState<covidPH>();
+  const [loading, setLoading] = useState<boolean>(true);
 
   const covidStatus = async () => {
     const res = await axios.get("https://disease.sh/v3/covid-19/countries/philippines?strict=true");
     setCovidData(res.data);
+    setTimeout(() => setLoading(false), 1700);
   };
 
   useEffect(() => {
@@ -20,7 +24,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className='h-full flex flex-col items-center font-pops bg-gray-900 text-gray-200'>
+    <div className='h-screen flex flex-col items-center font-pops bg-gray-900 text-gray-200'>
       <div>
         <div className='mt-16 text-center'>
           <h1 className='lg:text-5xl text-3xl font-bold'>Covid-19 Tracker PH</h1>
@@ -29,28 +33,37 @@ const App: React.FC = () => {
           </h2>
         </div>
 
-        <div className='mt-12'>
-          <div className='info'>
-            <p> Cases: {formatNumber(covidData?.cases)}</p>
-            <p>Deaths: {formatNumber(covidData?.deaths)}</p>
-            <p>Recovered: {formatNumber(covidData?.recovered)}</p>
-            <p>Tests: {formatNumber(covidData?.tests)}</p>
-          </div>
+        {loading ? (
+          <Loader />
+        ) : (
+          <motion.div
+            initial={{ y: 200, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1 }}
+            className='mt-12'
+          >
+            <div className='info'>
+              <p> Cases: {formatNumber(covidData?.cases)}</p>
+              <p>Deaths: {formatNumber(covidData?.deaths)}</p>
+              <p>Recovered: {formatNumber(covidData?.recovered)}</p>
+              <p>Tests: {formatNumber(covidData?.tests)}</p>
+            </div>
 
-          <div className='info'>
-            <p>Active Cases: {formatNumber(covidData?.active)}</p>
-            <p>Critical Cases: {formatNumber(covidData?.critical)}</p>
-          </div>
+            <div className='info'>
+              <p>Active Cases: {formatNumber(covidData?.active)}</p>
+              <p>Critical Cases: {formatNumber(covidData?.critical)}</p>
+            </div>
 
-          <div className='info'>
-            <p>Cases Today: {formatNumber(covidData?.todayCases)}</p>
-            <p>Deaths Today: {formatNumber(covidData?.todayDeaths)}</p>
-            <p>Recovered Today: {formatNumber(covidData?.todayRecovered)}</p>
-          </div>
-        </div>
+            <div className='info'>
+              <p>Cases Today: {formatNumber(covidData?.todayCases)}</p>
+              <p>Deaths Today: {formatNumber(covidData?.todayDeaths)}</p>
+              <p>Recovered Today: {formatNumber(covidData?.todayRecovered)}</p>
+            </div>
+          </motion.div>
+        )}
       </div>
 
-      <footer className='flex flex-col lg:flex-row justify-between items-center w-screen pt-8 lg:px-36 px-8 pb-8 absolute bottom-0 bg-blue-900'>
+      <footer className='flex flex-col lg:flex-row justify-between items-center w-screen pt-8 lg:px-36 px-8 pb-8 absolute bottom-0 lg:bg-blue-900'>
         <p className='lg:text-base text-sm'>&copy; Josh Daniel Bañares 2021 • All Rights Reserved</p>
         <div className='mt-2 lg:mt-0'>
           <a
