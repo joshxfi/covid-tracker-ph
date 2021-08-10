@@ -12,7 +12,7 @@ const App: React.FC = () => {
   const covidStatus = async () => {
     const res = await axios.get("https://disease.sh/v3/covid-19/countries/philippines?strict=true");
     setCovidData(res.data);
-    setTimeout(() => setLoading(false), 1700);
+    setLoading(false);
   };
 
   useEffect(() => {
